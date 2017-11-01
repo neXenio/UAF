@@ -1,8 +1,9 @@
+apply plugin: 'java'
 
-repositories {
-    mavenCentral()
-}
+dependencies {
+	compile 'com.google.code.gson:gson:2.6.2'
+	compile 'junit:junit:4.12'
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.2.1'
+	sourceCompatibility = 1.7
+	targetCompatibility = 1.7
 }
