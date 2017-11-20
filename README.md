@@ -13,29 +13,20 @@ The goal of the Universal Authentication Framework is to provide a unified and e
 
 ## Integration
 
-### Gradle
-```groovy
-repositories {
-    maven {
-        url  "http://dl.bintray.com/nexenio/UAF-Java"
-    }
-}
-dependencies {
-    compile 'com.nexenio.fido:uaf-core:1.2.0'
-}
-```
+Get the latest release [from Bintray](https://bintray.com/nexenio/UAF-Java/UAF-Core) as Jar or as Maven/Gradle dependency.
 
-### Maven
-```xml
-<dependency>
-  <groupId>com.nexenio.fido</groupId>
-  <artifactId>uaf-core</artifactId>
-  <version>1.2.0</version>
-</dependency>
-```
+## Publishing Artifacts
 
-### JAR
-You can download the latest .jar files from [GitHub][releases] or [Bintray][bintray].
+### Prerequisites
+
+Make sure you are a member of the Bintray organization. Get an API key and overwrite `bintrayUser` and `bintrayApiKey`.  
+
+### Release new Versions
+
+- merge your changes to `master`
+- run the gradle task `release`. That will
+  - bump the release version
+  - publish the jar to bintray
 
 
 [releases]: https://github.com/neXenio/UAF/releases
