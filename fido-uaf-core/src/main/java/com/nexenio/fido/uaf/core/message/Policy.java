@@ -18,6 +18,7 @@ package com.nexenio.fido.uaf.core.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -37,7 +38,7 @@ public class Policy {
      */
     @SerializedName("accepted")
     @JsonProperty("accepted")
-    private MatchCriteria[][] accepted;
+    private List<List<MatchCriteria>> accepted;
 
     /**
      * Any authenticator that matches any of MatchCriteria contained in the field disallowed must be excluded from
@@ -46,6 +47,6 @@ public class Policy {
      */
     @SerializedName("disallowed")
     @JsonProperty("disallowed")
-    public MatchCriteria[] disallowed;
+    public List<MatchCriteria> disallowed;
 
 }

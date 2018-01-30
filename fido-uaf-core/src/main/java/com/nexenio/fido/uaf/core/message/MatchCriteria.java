@@ -18,6 +18,8 @@ package com.nexenio.fido.uaf.core.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -30,6 +32,6 @@ public class MatchCriteria {
      */
     @SerializedName("aaid")
     @JsonProperty("aaid")
-    private String[] aaids;
+    private List<String> aaids = new ArrayList<>();
 
 }
