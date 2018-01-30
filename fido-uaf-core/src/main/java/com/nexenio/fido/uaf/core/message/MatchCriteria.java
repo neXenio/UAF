@@ -18,6 +18,7 @@ package com.nexenio.fido.uaf.core.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -31,5 +32,35 @@ public class MatchCriteria {
     @SerializedName("aaid")
     @JsonProperty("aaid")
     private String[] aaids;
+
+    @SerializedName("vendorID")
+    @JsonProperty("vendorID")
+    private List<String> vendorIds;
+
+    @SerializedName("keyIDs")
+    @JsonProperty("keyIDs")
+    private List<String> keyIds;
+
+    private long userVerification;
+
+    private int keyProtection;
+
+    private int matcherProtection;
+
+    private long attachmentHint;
+
+    private int tcDisplay;
+
+    private List<Integer> authenticationAlgorithms;
+
+    private List<String> assertionSchemes;
+
+    private List<Integer> attestationTypes;
+
+    private int authenticatorVersion;
+
+    @SerializedName("exts")
+    @JsonProperty("exts")
+    private List<Extension> extensions;
 
 }

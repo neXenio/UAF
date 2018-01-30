@@ -1,11 +1,10 @@
 package com.nexenio.fido.uaf.core.message;
 
+import static org.junit.Assert.*;
+
 import com.google.gson.Gson;
-import org.junit.Test;
-
 import java.util.logging.Logger;
-
-import static org.junit.Assert.assertNotNull;
+import org.junit.*;
 
 public class RegistrationRequestTest {
 
