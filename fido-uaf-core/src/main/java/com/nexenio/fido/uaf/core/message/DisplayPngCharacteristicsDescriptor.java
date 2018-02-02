@@ -18,6 +18,8 @@ package com.nexenio.fido.uaf.core.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -77,6 +79,6 @@ public class DisplayPngCharacteristicsDescriptor {
      */
     @SerializedName("plte")
     @JsonProperty("plte")
-    private RgbPaletteEntry[] rgbPaletteEntries;
+    private List<RgbPaletteEntry> rgbPaletteEntries = new ArrayList<>();
 
 }

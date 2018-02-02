@@ -16,20 +16,18 @@
 
 package com.nexenio.fido.uaf.core.operation.authentication;
 
-import com.nexenio.fido.uaf.core.crypto.BCrypt;
-import com.nexenio.fido.uaf.core.crypto.Notary;
-import com.nexenio.fido.uaf.core.message.AuthenticationRequest;
-import com.nexenio.fido.uaf.core.message.Operation;
-import com.nexenio.fido.uaf.core.message.OperationHeader;
-import com.nexenio.fido.uaf.core.message.Version;
-import com.nexenio.fido.uaf.core.operation.registration.RegistrationRequestGeneration;
-import com.nexenio.fido.uaf.core.util.PolicyUtil;
+import com.nexenio.fido.uaf.core.crypto.*;
+import com.nexenio.fido.uaf.core.message.*;
+import com.nexenio.fido.uaf.core.operation.registration.*;
+import com.nexenio.fido.uaf.core.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.commons.codec.binary.Base64;
 
 public class AuthenticationRequestGeneration {
 
     private String appId = RegistrationRequestGeneration.APP_ID;
-    private String[] acceptedAaids = null;
+    private List<String> acceptedAaids = new ArrayList<>();
 
     public AuthenticationRequestGeneration() {
     }
@@ -38,7 +36,7 @@ public class AuthenticationRequestGeneration {
         this.appId = appId;
     }
 
-    public AuthenticationRequestGeneration(String appId, String[] acceptedAaids) {
+    public AuthenticationRequestGeneration(String appId, List<String> acceptedAaids) {
         this.appId = appId;
         this.acceptedAaids = acceptedAaids;
     }
@@ -62,7 +60,7 @@ public class AuthenticationRequestGeneration {
 
     private String generateServerData(String challenge, Notary notary) {
         String dataToSign = Base64.encodeBase64URLSafeString(("" + System.currentTimeMillis()).getBytes())
-                + "." + Base64.encodeBase64URLSafeString(challenge.getBytes());
+            + "." + Base64.encodeBase64URLSafeString(challenge.getBytes());
         String signature = notary.sign(dataToSign);
 
         return Base64.encodeBase64URLSafeString((signature + "." + dataToSign).getBytes());

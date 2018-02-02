@@ -18,6 +18,8 @@ package com.nexenio.fido.uaf.core.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -35,6 +37,6 @@ public class DeregistrationRequest {
      */
     @SerializedName("authenticators")
     @JsonProperty("authenticators")
-    private DeregisterAuthenticator[] authenticators;
+    private List<DeregisterAuthenticator> authenticators = new ArrayList<>();
 
 }
