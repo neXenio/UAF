@@ -1,14 +1,15 @@
 package com.nexenio.fido.uaf.core.ops;
 
+import static org.junit.Assert.*;
+
+import com.google.common.collect.Lists;
 import com.google.gson.Gson;
-import com.nexenio.fido.uaf.core.operation.authentication.AuthenticationRequestGeneration;
-import com.nexenio.fido.uaf.core.crypto.Notary;
-import com.nexenio.fido.uaf.core.message.AuthenticationRequest;
-import org.junit.Test;
-
+import com.nexenio.fido.uaf.core.crypto.*;
+import com.nexenio.fido.uaf.core.message.*;
+import com.nexenio.fido.uaf.core.operation.authentication.*;
+import java.util.List;
 import java.util.logging.Logger;
-
-import static org.junit.Assert.assertNotNull;
+import org.junit.*;
 
 public class AuthenticationRequestGenerationTest {
 
@@ -25,7 +26,7 @@ public class AuthenticationRequestGenerationTest {
 
     @Test
     public void withPolicy() {
-        String[] aaids = {"ABCD#ABCD"};
+        List<String> aaids = Lists.newArrayList("ABCD#ABCD");
         AuthenticationRequest authReq = new AuthenticationRequestGeneration("https://uaf.ebay.com/uaf/facets", aaids).createAuthenticationRequest(new NotaryImpl());
         assertNotNull(authReq);
         logger.info(gson.toJson(authReq));
