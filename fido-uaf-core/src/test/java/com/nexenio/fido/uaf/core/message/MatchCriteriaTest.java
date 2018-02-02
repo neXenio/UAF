@@ -1,11 +1,10 @@
 package com.nexenio.fido.uaf.core.message;
 
+import static org.junit.Assert.*;
+
 import com.google.gson.Gson;
-import org.junit.Test;
-
 import java.util.logging.Logger;
-
-import static org.junit.Assert.assertNotNull;
+import org.junit.*;
 
 public class MatchCriteriaTest {
 
@@ -16,6 +15,7 @@ public class MatchCriteriaTest {
     public void test() {
         MatchCriteria matchCrit = gson.fromJson(getTestMatchCrit(), MatchCriteria.class);
         assertNotNull(matchCrit);
+        assertNotNull(matchCrit.getVendorIds());
         logger.info(gson.toJson(matchCrit));
     }
 

@@ -34,4 +34,34 @@ public class MatchCriteria {
     @JsonProperty("aaid")
     private List<String> aaids = new ArrayList<>();
 
+    @SerializedName("vendorID")
+    @JsonProperty("vendorID")
+    private List<String> vendorIds = new ArrayList<>();
+
+    @SerializedName("keyIDs")
+    @JsonProperty("keyIDs")
+    private List<String> keyIds = new ArrayList<>();
+
+    private long userVerification;
+
+    private int keyProtection;
+
+    private int matcherProtection;
+
+    private long attachmentHint;
+
+    private int tcDisplay;
+
+    private List<Integer> authenticationAlgorithms = new ArrayList<>();
+
+    private List<String> assertionSchemes = new ArrayList<>();
+
+    private List<Integer> attestationTypes = new ArrayList<>();
+
+    private int authenticatorVersion;
+
+    @SerializedName("exts")
+    @JsonProperty("exts")
+    private List<Extension> extensions = new ArrayList<>();
+
 }
